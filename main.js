@@ -6,6 +6,7 @@ var game = function(){
             if(turn % 2 != 0){
                 //$('#'+id).prepend("<img src='x.png'/>")
                 $('#'+id).css("background-image", 'url("x.png")')
+                $('#'+id).css("background-size", "cover")
                 turn += 1;
                 var oldx = localStorage.getItem("xspaces");
                 if( oldx === null){
@@ -17,6 +18,7 @@ var game = function(){
             }else{
                 //$('#'+id).prepend("<img src='o.png'/>")
                 $('#'+id).css("background-image", 'url("o.png")')
+                $('#'+id).css("background-size", "cover")
                 turn += 1;
                 var oldo = localStorage.getItem("ospaces")
                 if( oldo === null){
