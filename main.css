@@ -6,7 +6,7 @@
     height: 50vw;
 }
 
-.box{
+.board div{
     width: 30%;
     height: 30%;
     display: inline-block;

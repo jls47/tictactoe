@@ -1,10 +1,14 @@
+localStorage.setItem("ospaces", "")
+localStorage.setItem("xspaces", "")
+
 var game = function(){
     var turn = 1;
     $(".box").click(function(){
         var id = $(this).attr('id');
-        if($(this).is(':empty')){    
+        if(localStorage.getItem("xspaces").includes(id) || localStorage.getItem('ospaces').includes(id)){
+            alert("Choose another square!");    
+        }else{
             if(turn % 2 != 0){
-                //$('#'+id).prepend("<img src='x.png'/>")
                 $('#'+id).css("background-image", 'url("x.png")')
                 $('#'+id).css("background-size", "cover")
                 turn += 1;
@@ -16,7 +20,6 @@ var game = function(){
                 };
                 console.log(localStorage.getItem("xspaces"));
             }else{
-                //$('#'+id).prepend("<img src='o.png'/>")
                 $('#'+id).css("background-image", 'url("o.png")')
                 $('#'+id).css("background-size", "cover")
                 turn += 1;
@@ -28,10 +31,10 @@ var game = function(){
                 };
                 console.log(localStorage.getItem("xspaces"));
             };
-        }else{
-            alert("Choose another square!")
         }
     })
+
+    
 }
 
 $(".clear").click(function(){
