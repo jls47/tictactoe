@@ -3,7 +3,7 @@ localStorage.setItem("xspaces", "")
 
 var game = function(){
     var turn = 1;
-    $(".box").click(function(){
+    $(".board").children().click(function(){
         var id = $(this).attr('id');
         if(localStorage.getItem("xspaces").includes(id) || localStorage.getItem('ospaces').includes(id)){
             alert("Choose another square!");    
@@ -39,7 +39,9 @@ var game = function(){
 
 $(".clear").click(function(){
     localStorage.clear();
-    location.reload();
+    $(".board").children().css("background-image", "none")
+    localStorage.setItem("ospaces", "")
+    localStorage.setItem("xspaces", "")
 })
 
 game();
