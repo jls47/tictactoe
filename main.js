@@ -29,27 +29,35 @@ var game = function(){
         console.log($('#33').attr('choice'));
         if($('#31').attr('choice') === $('#32').attr('choice') && $('#32').attr('choice') === $('#33').attr('choice')){
             alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#21').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#23').attr('choice')){
             alert('We have a winner!  ' + $('#21').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#11').attr('choice') === $('#12').attr('choice') && $('#12').attr('choice') === $('#13').attr('choice')){
             alert('We have a winner!  ' + $('#11').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#31').attr('choice') === $('#21').attr('choice') && $('#21').attr('choice') === $('#11').attr('choice')){
             alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#32').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#12').attr('choice')){
             alert('We have a winner!  ' + $('#32').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#33').attr('choice') === $('#23').attr('choice') && $('#23').attr('choice') === $('#13').attr('choice')){
             alert('We have a winner!  ' + $('#33').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#31').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#13').attr('choice')){
             alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
         if($('#11').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#33').attr('choice')){
             alert('We have a winner!  ' + $('#33').attr('choice') + ' wins!');
+            setTimeout(clear, 1000);
         }
     })
     
