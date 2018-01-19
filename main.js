@@ -5,43 +5,67 @@ var game = function(){
     var turn = 1;
     $(".board").children().click(function(){
         var id = $(this).attr('id');
-        if(localStorage.getItem("xspaces").includes(id) || localStorage.getItem('ospaces').includes(id)){
+        var choice = $(this).attr('choice');
+        if(choice === 'X' || choice === 'O'){
             alert("Choose another square!");    
         }else{
             if(turn % 2 != 0){
                 $('#'+id).css("background-image", 'url("x.png")')
                 $('#'+id).css("background-size", "cover")
+                $('#'+id).attr('choice', 'X')
                 turn += 1;
-                var oldx = localStorage.getItem("xspaces");
-                if( oldx === null){
-                    localStorage.setItem("xspaces", id);
-                }else{
-                    localStorage.setItem("xspaces", oldx + ", " + id);
-                };
-                console.log(localStorage.getItem("xspaces"));
+                console.log($('#'+id).attr('choice'))
+              
             }else{
                 $('#'+id).css("background-image", 'url("o.png")')
                 $('#'+id).css("background-size", "cover")
+                $('#'+id).attr('choice', 'O')
                 turn += 1;
-                var oldo = localStorage.getItem("ospaces")
-                if( oldo === null){
-                    localStorage.setItem("ospaces", id);
-                }else{
-                    localStorage.setItem("ospaces", oldo + ", " + id);
-                };
-                console.log(localStorage.getItem("xspaces"));
+                console.log($('#'+id).attr('choice'))
             };
         }
+        console.log($('#31').attr('choice'));
+        console.log($('#32').attr('choice'));
+        console.log($('#33').attr('choice'));
+        if($('#31').attr('choice') === $('#32').attr('choice') && $('#32').attr('choice') === $('#33').attr('choice')){
+            alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+        }
+        if($('#21').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#23').attr('choice')){
+            alert('We have a winner!  ' + $('#21').attr('choice') + ' wins!');
+        }
+        if($('#11').attr('choice') === $('#12').attr('choice') && $('#12').attr('choice') === $('#13').attr('choice')){
+            alert('We have a winner!  ' + $('#11').attr('choice') + ' wins!');
+        }
+        if($('#31').attr('choice') === $('#21').attr('choice') && $('#21').attr('choice') === $('#11').attr('choice')){
+            alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+        }
+        if($('#32').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#12').attr('choice')){
+            alert('We have a winner!  ' + $('#32').attr('choice') + ' wins!');
+        }
+        if($('#33').attr('choice') === $('#23').attr('choice') && $('#23').attr('choice') === $('#13').attr('choice')){
+            alert('We have a winner!  ' + $('#33').attr('choice') + ' wins!');
+        }
+        if($('#31').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#13').attr('choice')){
+            alert('We have a winner!  ' + $('#31').attr('choice') + ' wins!');
+        }
+        if($('#11').attr('choice') === $('#22').attr('choice') && $('#22').attr('choice') === $('#33').attr('choice')){
+            alert('We have a winner!  ' + $('#33').attr('choice') + ' wins!');
+        }
     })
-
     
 }
 
-$(".clear").click(function(){
+var clear = function(){
     localStorage.clear();
     $(".board").children().css("background-image", "none")
+    $(".board").children().each(function(i){
+        $(this).attr('choice', i)
+    });
     localStorage.setItem("ospaces", "")
     localStorage.setItem("xspaces", "")
-})
+
+}
+
+$(".clear").click(clear);
 
 game();
